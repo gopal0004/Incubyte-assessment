@@ -45,7 +45,7 @@ class BookTest {
 	}
 	
 	@Test
-	void addBookWithInvalidISBN() {
+	void testAddBookWithInvalidISBN() {
 
 		assertThrows(IllegalArgumentException.class, () -> {
 			new Book("InvalidISBN", "Publish News Letter", "Amit Garg", 2013);
@@ -53,7 +53,7 @@ class BookTest {
 	}
 	
 	@Test
-	void addBookTimeOut() {
+	void testAddBookTimeOut() {
 		Book book = new Book("999-22-1111-333-2", "Client Server Computing", "Sharad Kumar Verma", 2012);
 		assertTimeout(Duration.ofMillis(1), () -> library.addBook(book));
 	}

@@ -16,6 +16,7 @@ public class LibrarySystem implements Operations {
 
 	@Override
 	public boolean addBook(Book book) {
+		
 		if(availableBooks.contains(book)) {
 			throw new IllegalArgumentException("Book already exist");
 		}
@@ -25,6 +26,20 @@ public class LibrarySystem implements Operations {
 	@Override
 	public boolean borrowBook(String isbn) {
 		
+		if(isbn == null) {
+			throw new NullPointerException("without isbn you can't borrow book");
+		}
+		if(availableBooks.isEmpty()) {
+			return false;
+		}
+		
+		for(Book book : availableBooks) {
+			if(book.getISBN().equals(isbn)) {
+				availableBooks.remove(book);
+				borrowedBooks.add(book);
+				return true;
+			}
+		}
 		return false;
 	}
 

@@ -49,9 +49,6 @@ public class LibrarySystem implements Operations {
 		if(isbn == null) {
 			throw new NullPointerException("without isbn you can't borrow book");
 		}
-		if(borrowedBooks.isEmpty()) {
-			return false;
-		}
 		
 		for(Book book : borrowedBooks) {
 			if(book.getISBN().equals(isbn)) {

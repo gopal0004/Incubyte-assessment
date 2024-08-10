@@ -44,8 +44,8 @@ public class LibrarySystem implements Operations {
 	}
 
 	@Override
-	public void returnBook(String isbn) {
-		
+	public boolean returnBook(String isbn) {
+		return false;
 	}
 
 	@Override

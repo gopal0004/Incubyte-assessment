@@ -45,6 +45,21 @@ public class LibrarySystem implements Operations {
 
 	@Override
 	public boolean returnBook(String isbn) {
+		
+		if(isbn == null) {
+			throw new NullPointerException("without isbn you can't borrow book");
+		}
+		if(borrowedBooks.isEmpty()) {
+			return false;
+		}
+		
+		for(Book book : borrowedBooks) {
+			if(book.getISBN().equals(isbn)) {
+				borrowedBooks.remove(book);
+				availableBooks.add(book);
+				return true;
+			}
+		}
 		return false;
 	}
 

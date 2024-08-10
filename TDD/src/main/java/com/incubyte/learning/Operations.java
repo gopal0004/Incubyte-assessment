@@ -2,8 +2,8 @@ package com.incubyte.learning;
 
 public interface Operations {
 	
-	public void addBook(Book book);
-	public void borrowBook();
-	public void returnBook();
+	public boolean addBook(Book book);
+	public boolean borrowBook(String isbn);
+	public void returnBook(String isbn);
 	public void viewBooks();
 }

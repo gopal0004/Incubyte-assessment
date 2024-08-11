@@ -61,8 +61,8 @@ public class LibrarySystem implements Operations {
 	}
 
 	@Override
-	public void viewBooks() {
-		
+	public Set<Book> viewBooks() {
+		return new HashSet<>(availableBooks);
 	}
 
 	

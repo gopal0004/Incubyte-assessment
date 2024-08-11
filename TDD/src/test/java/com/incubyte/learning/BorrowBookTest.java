@@ -2,6 +2,8 @@ package com.incubyte.learning;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.Duration;
+
 //import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -57,6 +59,13 @@ class BorrowBookTest {
 	@Test
 	void testBorrowFromEmptyLibrary() {
 		assertFalse(library.borrowBook("1234567890"));
+	}
+	
+	@Test
+	void testBorrowBookTimeOut() {
+		Book book = new Book("978-0-1234-5678-9", "Introduction to Algorithms", "Thomas H. Cormen", 2009);
+		assertTimeout(Duration.ofMillis(1), () -> library.addBook(book));
+		assertTimeout(Duration.ofMillis(1), () -> library.borrowBook(book.getISBN()));
 	}
 	
 }

@@ -62,6 +62,8 @@ class ReturnBookTest {
 	void testReturnBookTimeOut() {
 		Book book = new Book("978-3-4567-8901-2", "Clean Code: A Handbook of Agile Software Craftsmanship", "Robert C. Martin", 2008);
 		assertTimeout(Duration.ofMillis(1), () -> library.addBook(book));
+		assertTimeout(Duration.ofMillis(1), () -> library.borrowBook(book.getISBN()));
+		assertTimeout(Duration.ofMillis(1), () -> library.returnBook(book.getISBN()));
 	}
 	
 
